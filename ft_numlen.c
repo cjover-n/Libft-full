@@ -31,3 +31,4 @@ int		ft_numlen(int n)
 	}
 	return (len);
 }
+
