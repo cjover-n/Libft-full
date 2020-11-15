@@ -6,7 +6,7 @@
 /*   By: cjover-n <cjover-n@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 20:37:31 by cjover-n          #+#    #+#             */
-/*   Updated: 2020/11/15 16:47:09 by cjover-n         ###   ########.fr       */
+/*   Updated: 2020/11/15 16:58:50 by cjover-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,7 @@ void			ft_alex(t_tab *c);
 void			ft_hexadecimal(t_tab *c, const char *str);
 void			ft_bonus(t_tab *c);
 int				ft_numlen(int n);
+int				ft_isspace(char cr);
 
 
 #endif
