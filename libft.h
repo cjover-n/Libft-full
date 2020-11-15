@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjover-n <cjover-n@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cjover-n <cjover-n@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 20:37:31 by cjover-n          #+#    #+#             */
-/*   Updated: 2020/09/29 21:32:11 by cjover-n         ###   ########.fr       */
+/*   Updated: 2020/11/15 16:47:09 by cjover-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdarg.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 typedef struct	s_list
 {
@@ -135,6 +137,7 @@ void			ft_miki(t_tab *c);
 void			ft_alex(t_tab *c);
 void			ft_hexadecimal(t_tab *c, const char *str);
 void			ft_bonus(t_tab *c);
+int				ft_numlen(int n);
 
 
 #endif
