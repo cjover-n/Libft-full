@@ -6,7 +6,7 @@
 /*   By: cjover-n <cjover-n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 20:37:31 by cjover-n          #+#    #+#             */
-/*   Updated: 2021/05/16 17:45:44 by cjover-n         ###   ########.fr       */
+/*   Updated: 2021/05/16 18:05:14 by cjover-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,29 +114,6 @@ void			ft_putnbr(int nb);
 void			ft_putstr(char *str);
 char			*ft_strcdup(const char *s1, int c);
 int				get_next_line(int fd, char **line);
-int				ft_printf(const char *format, ...);
-void			ft_putchar_print(t_tab *c, const char d);
-void			ft_putstr_pre(t_tab *c, const char *str);
-void			ft_putstr_print(t_tab *c, const char *str);
-void			ft_initialize(t_tab *c);
-void			ft_flags1(t_tab *c);
-void			ft_flags2(t_tab *c);
-void			ft_flags3(t_tab *c);
-void			ft_types(t_tab *c);
-int				ft_atoi_print(t_tab *c);
-char			*ft_itoabase(t_tab *c);
-void			*ft_itoabase_logic(t_tab *c);
-void			ft_c(t_tab *c);
-void			ft_s(t_tab *c);
-void			ft_id(t_tab *c);
-void			ft_do_hyphen(t_tab *c);
-void			ft_width(t_tab *c);
-void			ft_igor(t_tab *c, char *str);
-void			ft_coco(t_tab *c, char *str);
-void			ft_miki(t_tab *c);
-void			ft_alex(t_tab *c);
-void			ft_hexadecimal(t_tab *c, const char *str);
-void			ft_bonus(t_tab *c);
 int				ft_numlen(int n);
 int				ft_isspace(char cr);
 
