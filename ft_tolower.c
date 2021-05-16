@@ -6,13 +6,13 @@
 /*   By: cjover-n <cjover-n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 18:31:50 by cjover-n          #+#    #+#             */
-/*   Updated: 2019/11/19 19:30:54 by cjover-n         ###   ########.fr       */
+/*   Updated: 2021/05/16 17:40:40 by cjover-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
 	{

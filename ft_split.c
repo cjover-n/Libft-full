@@ -3,89 +3,86 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjover-n <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cjover-n <cjover-n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 16:01:19 by cjover-n          #+#    #+#             */
-/*   Updated: 2019/12/02 20:27:51 by cjover-n         ###   ########.fr       */
+/*   Updated: 2021/05/16 17:28:49 by cjover-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_counting_charsets(const char *s, char c)
+static int	countstr(char const *s1, char c)
 {
-	size_t	counter;
-	int		i;
+	int	comp;
+	int	cles;
 
-	counter = 0;
-	i = 0;
-	while (s[i])
+	comp = 0;
+	cles = 0;
+	if (*s1 == '\0')
+		return (0);
+	while (*s1 != '\0')
 	{
-		if (s[i] == c)
+		if (*s1 == c)
+			cles = 0;
+		else if (cles == 0)
 		{
-			i++;
-			continue;
+			cles = 1;
+			comp++;
 		}
-		counter++;
-		while (s[i] && s[i] != c)
-			i++;
+		s1++;
 	}
-	return (counter);
+	return (comp);
 }
 
-static char		*ft_strndup(char const *s1, size_t n)
+static int	numchar(char const *s2, char c, int i)
 {
-	char	*clone;
-	size_t	i;
+	int	lenght;
 
-	if ((clone = (char *)malloc(sizeof(char) * (n + 1))) == NULL)
-		return (NULL);
-	i = 0;
-	while (i < n)
+	lenght = 0;
+	while (s2[i] != c && s2[i] != '\0')
 	{
-		clone[i] = s1[i];
+		lenght++;
 		i++;
 	}
-	clone[i] = '\0';
-	return (clone);
+	return (lenght);
 }
 
-static void		*ft_destroy(char **str)
+static char	**affect(char const *s, char **dst, char c, int l)
 {
-	int		i;
+	int	i;
+	int	y;
+	int	k;
 
 	i = 0;
-	while (str[i] != NULL)
-		free(str[i++]);
-	free(str);
-	return (NULL);
+	y = 0;
+	while (s[i] != '\0' && y < l)
+	{
+		k = 0;
+		while (s[i] == c)
+			i++;
+		dst[y] = (char *)malloc(sizeof(char) * numchar(s, c, i) + 1);
+		if (!dst[y])
+			return (NULL);
+		while (s[i] != '\0' && s[i] != c)
+			dst[y][k++] = s[i++];
+		dst[y][k] = '\0';
+		y++;
+	}
+	dst[y] = 0;
+	return (dst);
 }
 
-char			**ft_split(char const *str, char charset)
+char	**ft_split(char const *s, char c)
 {
-	char	**ret;
-	size_t	tab;
-	size_t	i;
-	size_t	x;
+	char	**dst;
+	int		n;
 
-	if (str == NULL)
+	if (s == NULL)
 		return (NULL);
-	tab = ft_counting_charsets(str, charset);
-	if ((ret = (char **)malloc(sizeof(char *) * (tab + 1))) == NULL)
+	n = countstr(s, c);
+	dst = (char **)malloc(sizeof(char *) * (n + 1));
+	if (!dst)
 		return (NULL);
-	tab = 0;
-	x = -1;
-	while (str[++x])
-	{
-		if (str[x] == charset)
-			continue;
-		i = 0;
-		while (str[x + i] && str[x + i] != charset)
-			i++;
-		if ((ret[tab++] = ft_strndup(&str[x], i)) == NULL)
-			return (ft_destroy(ret));
-		x += i - 1;
-	}
-	ret[tab] = NULL;
-	return (ret);
+	return (affect(s, dst, c, n));
 }

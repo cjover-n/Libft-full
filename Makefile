@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cjover-n <cjover-n@student.42madrid.com    +#+  +:+       +#+         #
+#    By: cjover-n <cjover-n@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/25 21:13:39 by cjover-n          #+#    #+#              #
-#    Updated: 2020/11/15 16:58:17 by cjover-n         ###   ########.fr        #
+#    Updated: 2021/05/16 17:47:43 by cjover-n         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,17 +23,10 @@ SRC =	ft_isalpha.c	ft_isprint.c	ft_strlcpy.c	ft_strrchr.c	\
 		ft_putstr_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c	ft_strmapi.c	\
 		ft_itoa.c		ft_split.c		ft_lstiter.c	ft_strcdup.c	\
 		ft_strnew.c		ft_putchar.c	ft_putnbr.c		ft_putstr.c		\
-		ft_strcdup.c	get_next_line.c	ft_numlen.c		ft_isspace.c
+		get_next_line.c	ft_numlen.c		ft_isspace.c
 
 SRCBONUS =	ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c	ft_lstlast.c \
 		  	ft_lstadd_back.c	ft_lstdelone.c	ft_lstclear.c ft_lstmap.c
-
-DIRPRINTSRC =	ft_printf/
-
-SRCPRINT =	ft_printf.c		ft_filler.c		ft_conversions.c	ft_zero.c	\
-			ft_atoiprint.c	ft_flags.c		printf_utils.c	
-			
-ADDPRINT =	$(addprefix $(DIRPRINTSRC)/,$(SRCPRINT))
 
 FLAGS = -Wextra -Wall -Werror -I
 
@@ -45,9 +38,9 @@ OBJPRINT = $(SRCPRINT:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(SRC) $(ADDPRINT) $(SRCBONUS) libft.h
-	@gcc $(FLAGS)./ -c $(SRC) $(SRCBONUS) $(ADDPRINT) 
-	@ar -rc $(NAME) $(OBJ) $(OBJBONUS) $(OBJPRINT)
+$(NAME): $(SRC) $(SRCBONUS) libft.h
+	@gcc $(FLAGS)./ -c $(SRC) $(SRCBONUS) 
+	@ar -rc $(NAME) $(OBJ) $(OBJBONUS)
 	@ranlib $(NAME)
 
 clean:

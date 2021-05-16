@@ -6,7 +6,7 @@
 /*   By: cjover-n <cjover-n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 17:49:53 by cjover-n          #+#    #+#             */
-/*   Updated: 2019/11/26 18:58:33 by cjover-n         ###   ########.fr       */
+/*   Updated: 2021/05/16 17:40:08 by cjover-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		while (chg[i + x - 1] && ft_strchr(set, s1[i + x - 1]) != NULL)
 			x--;
 	}
-	if ((str = (char *)malloc(sizeof(char) * (x + 1))) == NULL)
+	str = (char *)malloc(sizeof(char) * (x + 1));
+	if (!str)
 		return (NULL);
 	str = ft_strncpy(str, &chg[i], x);
 	str[x] = '\0';
